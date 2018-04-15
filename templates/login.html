@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/static/css/login.css" />
+    <script type="text/javascript" src="/static/bootstrap/jquery-2.0.0.min.js"></script>
+    <title>用户登录</title>
+</head>
+<body>
+    <div class="wrap">
+        <div class="login-box col-md-4 col-md-offset-4
+                              col-sm-4 col-sm-offset-4
+                              col-xs-4 col-xs-offset-4">
+            <div class="head-box">LOGIN</div>
+            <div class="input-box">
+                <form class="bs-example bs-example-form" role="form">
+                    <div class="form-group">
+                        <label for="username" class="col-md-3 col-sm-4 col-xs-4">username</label>
+                        <div class="input-group col-md-9 col-sm-8 col-xs-8">
+                            <span class="input-group-addon glyphicon glyphicon-user"></span>
+                            <input type="text" class="form-control special-box" v-model="username" id="username" placeholder="请输入用户名">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="col-md-3 col-sm-4 col-xs-4">password</label>
+                        <div class="input-group col-md-9 col-sm-8 col-xs-8">
+                            <span class="input-group-addon glyphicon glyphicon-lock"></span>
+                            <input type="password" class="form-control special-box" v-model="password" id="password" placeholder="请输入密码">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <p class="error" v-show="pass">您的密码或帐号错误</p>
+            <div>
+                <button type="button" class="btn btn-success
+                                             login-btn
+                                             col-md-4 col-md-offset-4
+                                             col-sm-4 col-sm-offset-4
+                                             col-xs-4 col-xs-offset-4" @click="login">登录</button>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/static/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
