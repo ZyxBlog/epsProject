@@ -28,10 +28,13 @@ SECRET_KEY = '6gi1op=jqfxkfju=%fgcj9tujy$quezt$%9me0(7_$j!)y_%ka'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [' * ']
 
 
 # Application definition
+AUTHENTICATION_BACKENDS = (
+    'users.views.CustomBackend',
+)
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -89,8 +92,7 @@ DATABASES = {
         'NAME': 'eps',
         'USER': 'root',
         'PASSWORD': '960415',
-        'HOST': '127.0.0.1',
-
+        'HOST': '0.0.0.0',
     }
 }
 
