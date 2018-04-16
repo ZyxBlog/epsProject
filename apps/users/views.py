@@ -5,7 +5,7 @@ from django.contrib.auth.backends import ModelBackend
 from django.db.models import Q
 from django.views.generic.base import View
 
-from .models import UserProfile
+from .models import UserProfile, FactoryInformation, OrdersDetail
 from .forms import LoginForm
 
 # Create your views here.
@@ -38,3 +38,9 @@ class LoginView(View):
                 return render(request, 'login.html', {'msg': u'用户名或密码错误!'})
         else:
             return render(request, 'login.html', {'login_form': login_form})
+
+
+class IndexView(View):
+    def get(self, request):
+        factory = FactoryInformation.objects.filter()
+        return render(request, 'index.html', {'factory': factory})

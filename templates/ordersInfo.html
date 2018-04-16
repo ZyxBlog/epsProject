@@ -16,13 +16,13 @@
     <div class="top-wrap">
         <img src="/static/image/logo.jpg" class="logo" alt="logo" />
         <span class="top-title">EPS智能工厂管理系统</span>
-        <ul class="ul-wrap">
+        <ul class="ul-wrap" id="show">
             {% if request.user.is_authenticated %}
             <li class="li-wrap">
                 <span class="glyphicon glyphicon-user"></span>
                 <span>周轶轩</span>
             </li>
-            <li class="li-wrap">
+            <li class="li-wrap"  id="out" style="display: none;">
                 <span><a href="/">退出登录</a></span>
             </li>
             {% else %}
@@ -109,6 +109,7 @@
         </div>
     </div>
     <div class="version">Copyright © 2017 eps manage system , All right reserved.Created by zyx.</div>
+    <script type="text/javascript" src="/static/js/base.js"></script>
     <script type="text/javascript" src="/static/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
