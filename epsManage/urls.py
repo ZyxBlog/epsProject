@@ -25,4 +25,6 @@ urlpatterns = [
     url(r'^xadmin/', xadmin.site.urls),
     url(r'^$', LoginView.as_view(), name='login'),
     url(r'^index/$', TemplateView.as_view(template_name='index.html'), name='index'),
+    url(r'^detail/$', TemplateView.as_view(template_name='detail.html'), name='detail'),
+    url(r'^orders/$', TemplateView.as_view(template_name='ordersInfo.html'), name='orders'),
 ]

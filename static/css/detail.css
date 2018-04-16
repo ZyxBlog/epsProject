@@ -1,0 +1,30 @@
+    .detail-wrap {
+        width: 100%;
+        min-height: 100px;
+        border: 1px solid #808080;
+        padding: 20px 30px;
+        background-color: aliceblue;
+    }
+
+    .pic {
+        width: 100%;
+        height: auto;
+        margin-bottom: 25px;
+    }
+
+    .name {
+        text-align: center;
+        color: rgb(71, 75, 74);
+        margin-bottom: 30px;
+        font-weight: bold;
+    }
+
+    .detail-wrap p {
+        font-size: 16px;
+        color: rgb(122, 124, 122);
+    }
+
+    .title {
+        color: rgb(195, 130, 226);
+        border-bottom: none !important;
+    }

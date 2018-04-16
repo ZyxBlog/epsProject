@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/static/css/ordersInfo.css" />
+    <link rel="stylesheet" href="/static/css/base.css" />
+    <script type="text/javascript" src="/static/bootstrap/jquery-2.0.0.min.js"></script>
+    <title>工厂详情</title>
+</head>
+<body>
+    <div class="top-wrap">
+        <img src="/static/image/logo.jpg" class="logo" alt="logo" />
+        <span class="top-title">EPS智能工厂管理系统</span>
+        <ul class="ul-wrap">
+            {% if request.user.is_authenticated %}
+            <li class="li-wrap">
+                <span class="glyphicon glyphicon-user"></span>
+                <span>周轶轩</span>
+            </li>
+            <li class="li-wrap">
+                <span><a href="#">退出登录</a></span>
+            </li>
+            <li class="li-wrap">
+                <span><a href="#">个人信息</a></span>
+            </li>
+            {% else %}
+            <li class="li-wrap">
+                <span><a href="#">登录</a></span>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+    <div>
+        <div class="left-wrap">
+            <div class="title">
+                <span class="shangjia">管理平台</span>
+            </div>
+            <div class="list" id="list">
+                <ul>
+                    <li>
+                        <a href="/index/">首页</a>
+                    </li>
+                    <li class="active">
+                        <a href="/orders/">订单信息</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="whole" style="margin: 60px 30px 60px 230px;">
+            <div class="title-wrap">首页&nbsp;&nbsp;>>&nbsp;&nbsp;<span class="title">订单信息</span></div>
+            <div class="name-wrap">
+                <form class="bs-example bs-example-form search" role="form">
+                    <div class="input-group">
+                        <input type="text" class="form-control input-style" placeholder="请输入产品名称">
+                        <span class="input-group-addon glyphicon glyphicon-search"></span>
+                    </div>
+                </form>
+                <div>
+                    <table class="table table-bordered tab">
+                        <thead>
+                            <tr>
+                                <th>产品</th>
+                                <th>日期</th>
+                                <th>状态</th>
+                                <th>价格</th>
+                                <th>数量</th>
+                                <th>厂家</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="active">
+                                <td>产品1</td>
+                                <td>23/11/2017</td>
+                                <td>待发货</td>
+                                <td>2300.00</td>
+                                <td>23</td>
+                                <td>电子厂</td>
+                            </tr>
+                            <tr class="danger">
+                                <td>产品4</td>
+                                <td>20/10/2017</td>
+                                <td>已退货</td>
+                                <td>2300.00</td>
+                                <td>102</td>
+                                <td>电子厂</td>
+                            </tr>
+                            <tr class="active">
+                                <td>产品5</td>
+                                <td>23/11/2017</td>
+                                <td>待发货</td>
+                                <td>2300.00</td>
+                                <td>23</td>
+                                <td>电子厂</td>
+                            </tr>
+                            <tr class="success">
+                                <td>产品6</td>
+                                <td>10/11/2017</td>
+                                <td>发货中</td>
+                                <td>2300.00</td>
+                                <td>76</td>
+                                <td>电子厂</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="version">Copyright © 2017 eps manage system , All right reserved.Created by zyx.</div>
+    <script type="text/javascript" src="/static/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
