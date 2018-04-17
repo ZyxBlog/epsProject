@@ -47,7 +47,10 @@ class IndexView(View):
 
 
 class DetailView(View):
-    pass
+    def get(self, request):
+        p = request.path[11:]
+        factory = FactoryInformation.objects.filter(id=int(p))
+        return render(request, 'detail.html', {'factory': factory})
 
 
 class OrdersView(View):

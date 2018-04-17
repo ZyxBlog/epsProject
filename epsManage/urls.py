@@ -21,14 +21,14 @@ from django.views.generic import TemplateView
 import xadmin
 from django.views.static import serve
 
-from users.views import LoginView,  IndexView, OrdersView
+from users.views import LoginView,  IndexView, OrdersView, DetailView
 from epsManage.settings import MEDIA_ROOT
 
 urlpatterns = [
     url(r'^xadmin/', xadmin.site.urls),
     url(r'^$', LoginView.as_view(), name='login'),
     url(r'^index/$', IndexView.as_view(), name='index'),
-    url(r'^detail/$', TemplateView.as_view(template_name='detail.html'), name='detail'),
+    url(r'^detail/', DetailView.as_view(), name='detail'),
     url(r'^orders/$', OrdersView.as_view(), name='orders'),
     # upload image handle def
     url(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT})

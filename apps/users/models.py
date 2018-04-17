@@ -27,7 +27,7 @@ class FactoryInformation(models.Model):
     contactPerson = models.CharField(max_length=15, verbose_name=u'联系人')
     address = models.CharField(max_length=20, verbose_name=u'工厂地址')
     image = models.ImageField(upload_to='info/%Y/%m', verbose_name=u'工厂图', max_length=100, default='')
-    size = models.CharField(choices=(('small', u'0~500人'), ('middle', u'500~2000人'), ('big', u'2000人以上')), max_length=30, verbose_name=u'工厂规模')
+    size = models.CharField(choices=(('0~500人', u'0~500人'), ('500~2000人', u'500~2000人'), ('2000人以上', u'2000人以上')), max_length=30, verbose_name=u'工厂规模')
     desc = models.TextField(max_length=1000, verbose_name=u'工厂描述')
 
     class Meta:
