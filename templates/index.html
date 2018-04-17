@@ -51,10 +51,11 @@
         <div>
             <div class="fac-pic">
                 <div class="new-wrap">最新工厂资讯</div>
-                <div class="fac-list">
+                <p id="remind" style="font-size: 17px;margin:20px;">暂无工厂咨询!</p>
+                <div class="fac-list" id="flist">
                     {% for i in factory %}
                     <div class="whole-wrap">
-                        <img class="pic-wrap" src="/static/image/pic12.jpg" />
+                        <img class="pic-wrap" src="{{ MEDIA_URL }}{{ i.image }}" />
                         <div class="info-wrap">
                             <h3 class="name">{{ i.name }}</h3>
                             <p class="address">地址：{{ i.address }}</p>
@@ -76,6 +77,7 @@
     </div>
     <div class="version">Copyright © 2017 eps manage system , All right reserved.Created by zyx.</div>
     <script type="text/javascript" src="/static/js/base.js"></script>
+        <script type="text/javascript" src="/static/js/index.js"></script>
     <script type="text/javascript" src="/static/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

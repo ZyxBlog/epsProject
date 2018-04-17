@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """epsManage URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -18,8 +19,10 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.views.generic import TemplateView
 import xadmin
+from django.views.static import serve
 
 from users.views import LoginView,  IndexView
+from epsManage.settings import MEDIA_ROOT
 
 urlpatterns = [
     url(r'^xadmin/', xadmin.site.urls),
@@ -27,4 +30,6 @@ urlpatterns = [
     url(r'^index/$', IndexView.as_view(), name='index'),
     url(r'^detail/$', TemplateView.as_view(template_name='detail.html'), name='detail'),
     url(r'^orders/$', TemplateView.as_view(template_name='ordersInfo.html'), name='orders'),
+    # upload image handle def
+    url(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT})
 ]
