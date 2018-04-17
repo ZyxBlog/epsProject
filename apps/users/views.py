@@ -42,5 +42,15 @@ class LoginView(View):
 
 class IndexView(View):
     def get(self, request):
-        factory = FactoryInformation.objects.filter()
+        factory = FactoryInformation.objects.all()
         return render(request, 'index.html', {'factory': factory})
+
+
+class DetailView(View):
+    pass
+
+
+class OrdersView(View):
+    def get(self, request):
+        orders = OrdersDetail.objects.all()
+        return render(request, 'ordersInfo.html', {'orders': orders})

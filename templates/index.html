@@ -20,7 +20,7 @@
             {% if request.user.is_authenticated %}
             <li class="li-wrap">
                 <span class="glyphicon glyphicon-user"></span>
-                <span>周轶轩</span>
+                <span>{{ request.user.username }}</span>
             </li>
             <li class="li-wrap" id="out" style="display: none;">
                 <span><a href="/">退出登录</a></span>

@@ -20,7 +20,7 @@
             {% if request.user.is_authenticated %}
             <li class="li-wrap">
                 <span class="glyphicon glyphicon-user"></span>
-                <span>周轶轩</span>
+                <span>{{ request.user.username }}</span>
             </li>
             <li class="li-wrap"  id="out" style="display: none;">
                 <span><a href="/">退出登录</a></span>
@@ -66,42 +66,22 @@
                                 <th>状态</th>
                                 <th>价格</th>
                                 <th>数量</th>
+                                <th>总价</th>
                                 <th>厂家</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="active">
-                                <td>产品1</td>
-                                <td>23/11/2017</td>
-                                <td>待发货</td>
-                                <td>2300.00</td>
-                                <td>23</td>
-                                <td>电子厂</td>
+                        {% for i in orders %}
+                            <tr>
+                                <td>{{ i.product }}</td>
+                                <td>{{ i.time }}</td>
+                                <td>{{ i.state }}</td>
+                                <td>{{ i.price }}</td>
+                                <td>{{ i.num }}</td>
+                                <td class="total"></td>
+                                <td>{{ i.company }}</td>
                             </tr>
-                            <tr class="danger">
-                                <td>产品4</td>
-                                <td>20/10/2017</td>
-                                <td>已退货</td>
-                                <td>2300.00</td>
-                                <td>102</td>
-                                <td>电子厂</td>
-                            </tr>
-                            <tr class="active">
-                                <td>产品5</td>
-                                <td>23/11/2017</td>
-                                <td>待发货</td>
-                                <td>2300.00</td>
-                                <td>23</td>
-                                <td>电子厂</td>
-                            </tr>
-                            <tr class="success">
-                                <td>产品6</td>
-                                <td>10/11/2017</td>
-                                <td>发货中</td>
-                                <td>2300.00</td>
-                                <td>76</td>
-                                <td>电子厂</td>
-                            </tr>
+                        {% endfor %}
                         </tbody>
                     </table>
                 </div>
@@ -110,6 +90,7 @@
     </div>
     <div class="version">Copyright © 2017 eps manage system , All right reserved.Created by zyx.</div>
     <script type="text/javascript" src="/static/js/base.js"></script>
+    <script type="text/javascript" src="/static/js/ordersInfo.js"></script>
     <script type="text/javascript" src="/static/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
