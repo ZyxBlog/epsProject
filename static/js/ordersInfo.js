@@ -1,8 +1,8 @@
 $(function() {
-    for(let i = 0; i < $('.total').length; i++) {
-        const t = $('.total').eq(i).prev().prev().html() * $('.total').eq(i).prev().html();
-        $(".total").eq(i).html(t)
-    }
+    // for(let i = 0; i < $('.total').length; i++) {
+    //     const t = $('.total').eq(i).prev().prev().html() * $('.total').eq(i).prev().html();
+    //     $(".total").eq(i).html(t)
+    // }
 
     const a = $("tbody").children();
     for(let i = 0; i < a.length; i++) {

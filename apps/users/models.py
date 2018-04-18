@@ -40,12 +40,18 @@ class FactoryInformation(models.Model):
 
 class OrdersDetail(models.Model):
     product = models.CharField(max_length=20, verbose_name=u'产品名称')
+    type = models.CharField(max_length=30, verbose_name=u'产品型号', default='')
     name = models.ForeignKey(UserProfile, verbose_name=u'用户')
+    handler = models.CharField(max_length=20, verbose_name=u'经手人', default='')
+    way = models.CharField(choices=(('本地提交', '本地提交'), ('远程服务提交', u'远程服务提交'), ('企业内部提交', '企业内部提交')),default=u'本地提交', max_length=20, verbose_name=u'提交方式')
     time = models.DateTimeField(default=datetime.now, verbose_name=u'订单时间')
     num = models.IntegerField(default=0, verbose_name=u'数量')
     price = models.IntegerField(default=0, verbose_name=u'单价')
-    state = models.CharField(choices=(('未完成', u'未完成'), ('已完成', u'已完成'), ('已注销', u'已注销')), default='未完成', max_length=12, verbose_name=u'订单状态')
+    state = models.CharField(choices=(('未完成', u'未完成'), ('已完成', u'已完成'), ('已注销', u'已注销')),
+                             default='未完成', max_length=12, verbose_name=u'订单状态')
     company = models.ForeignKey(FactoryInformation, verbose_name=u'厂家')
+    capacity = models.CharField(default='', verbose_name=u'体积', max_length=30)
+    weight = models.CharField(default='', max_length=50, verbose_name=u'重量')
 
     class Meta:
         verbose_name = u'订单信息'
@@ -53,3 +59,22 @@ class OrdersDetail(models.Model):
 
     def __unicode__(self):
         return '{0}({1})({2})[{3}]'.format(self.name, self.product, self.state, self.time)
+
+
+class ProduceTask(models.Model):
+    factory = models.ForeignKey(FactoryInformation, verbose_name=u'工厂')
+    product = models.CharField(default='', max_length=20, verbose_name=u'产品')
+    count = models.CharField(default='0', max_length=20, verbose_name=u'成型量')
+    state = models.CharField(choices=(('未执行', '未执行'), ('正在执行开发', '正在执行开发'),
+                                      ('预发完成,没有成型', '预发完成,没有成型'), ('正在执行完成', '正在执行完成'),
+                                      ('成型完成', '成型完成')), default=u'未执行', max_length=30, verbose_name=u'生产状态')
+    raws = models.CharField(default='', max_length=20, verbose_name=u'原料类型')
+    weight = models.IntegerField(default=0, verbose_name=u'容量')
+    time = models.DateTimeField(default=datetime.now, verbose_name=u'时间')
+
+    class Meta:
+        verbose_name = u'生产任务'
+        verbose_name_plural = verbose_name
+
+    def __unicode__(self):
+        return self.product

@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
 
 __author__ = 'zyx'
-__date__ = '$DATE $TIME'
 
 import xadmin
 from xadmin import views
-from .models import FactoryInformation, OrdersDetail
+from .models import FactoryInformation, OrdersDetail, ProduceTask
 
 
 class BaseSetting(object):
@@ -25,12 +24,19 @@ class FactoryInformationAdmin(object):
 
 
 class OrdersDetailAdmin(object):
-    list_display = ['product', 'name', 'time', 'num', 'price', 'state', 'company']
-    search_fields = ['product', 'name', 'num', 'price', 'state', 'company']
-    list_filter = ['product', 'name', 'time', 'num', 'price', 'state', 'company']
+    list_display = ['product', 'name', 'time', 'num', 'price', 'state', 'company', 'capacity', 'weight', 'type', 'handler', 'way']
+    search_fields = ['product', 'name', 'num', 'price', 'state', 'company', 'capacity', 'weight', 'type', 'handler', 'way']
+    list_filter = ['product', 'name', 'time', 'num', 'price', 'state', 'company', 'capacity', 'weight', 'type', 'handler', 'way']
+
+
+class ProduceTaskAdmin(object):
+    list_display = ['factory', 'product', 'count', 'state', 'raws', 'weight', 'time']
+    search_fields = ['factory', 'product', 'count', 'state', 'raws', 'weight']
+    list_filter = ['factory', 'product', 'count', 'state', 'raws', 'weight', 'time']
 
 
 xadmin.site.register(FactoryInformation, FactoryInformationAdmin)
 xadmin.site.register(OrdersDetail, OrdersDetailAdmin)
 xadmin.site.register(views.BaseAdminView, BaseSetting)
+xadmin.site.register(ProduceTask, ProduceTaskAdmin)
 xadmin.site.register(views.CommAdminView, GlobalSettings)
