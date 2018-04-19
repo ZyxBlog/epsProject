@@ -5,7 +5,7 @@ from django.contrib.auth.backends import ModelBackend
 from django.db.models import Q
 from django.views.generic.base import View
 
-from .models import UserProfile, FactoryInformation, OrdersDetail, ProduceTask
+from .models import UserProfile, FactoryInformation, OrdersDetail, ProduceTask, StoreHouse
 from .forms import LoginForm
 
 # Create your views here.
@@ -79,3 +79,9 @@ class TaskView(View):
     def get(self, request):
         task = ProduceTask.objects.all()
         return render(request, 'task.html', {'task': task})
+
+
+class StoreView(View):
+    def get(self, request):
+        store = StoreHouse.objects.all()
+        return render(request, 'store.html', {'store': store})

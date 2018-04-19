@@ -78,3 +78,21 @@ class ProduceTask(models.Model):
 
     def __unicode__(self):
         return self.product
+
+
+class StoreHouse(models.Model):
+    weight = models.IntegerField(default=0, verbose_name=u'重量')
+    version = models.CharField(default='', max_length=20, verbose_name=u'预发产品型号')
+    time = models.DateTimeField(default=datetime.now, verbose_name=u'最晚入仓时间')
+    model = models.CharField(default='', max_length=20, verbose_name=u'成型产品型号')
+    ratio = models.IntegerField(default=1, verbose_name=u'出料比例')
+    batch = models.CharField(default='', max_length=20, verbose_name=u'批号')
+    contact = models.CharField(default='', max_length=20, verbose_name=u'关联型号')
+    color = models.CharField(default='', max_length=20, verbose_name=u'料颜色')
+
+    class Meta:
+        verbose_name = u'货仓存储'
+        verbose_name_plural = verbose_name
+
+    def __unicode__(self):
+        return '{0}({1})'.format(self.version, self.time)
