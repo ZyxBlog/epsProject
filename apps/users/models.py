@@ -96,3 +96,28 @@ class StoreHouse(models.Model):
 
     def __unicode__(self):
         return '{0}({1})'.format(self.version, self.time)
+
+
+class AGV(models.Model):
+    name = models.CharField(default='', max_length=20, verbose_name=u'名称')
+    ip = models.CharField(default='', max_length=30, verbose_name=u'ip地址')
+    contact = models.CharField(choices=(('否', '否'), ('是', '是')), max_length=5, default='否', verbose_name=u'连接状态')
+    route = models.IntegerField(default=1, verbose_name=u'所处路段')
+    model = models.CharField(choices=(('手动', '手动'), ('自动', '自动')), default='手动', max_length=10, verbose_name=u'手动/自动模式')
+    load = models.CharField(choices=(('否', '否'), ('是', '是')), default='否', max_length=10, verbose_name=u'是否负载')
+    task = models.CharField(default='', max_length=20, verbose_name=u'任务名称')
+    stage = models.IntegerField(default=-1, choices=((-1, '无任务空闲'), (0, '有任务但还未执行'), (1, '暂停执行'),
+                                                     (2, '正在执行第一阶段fromNode'), (3, '正在执行第二阶段fromMotion'),
+                                                     (4, '正在执行第三阶段toNode'), (5, '正在执行第四阶段toMotion'),
+                                                     (6, '任务已经完成'), (7, '无任务自动行走到充电区')), verbose_name=u'任务执行阶段')
+    error = models.IntegerField(default=0, choices=((0, '无错误'), (1, '激光雷达报警'), (2, '触边报警'), (3, '紧急开关报警')),
+                                verbose_name=u'错误报警状态')
+    power = models.IntegerField(default=100, verbose_name=u'电池状态')
+    time = models.DateTimeField(default=datetime.now, verbose_name=u'时间')
+
+    class Meta:
+        verbose_name = u'AGV属性与状态'
+        verbose_name_plural = verbose_name
+
+    def __unicode__(self):
+        return '{0}({1})'.format(self.name, self.ip)

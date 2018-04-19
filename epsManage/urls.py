@@ -21,7 +21,7 @@ from django.views.generic import TemplateView
 import xadmin
 from django.views.static import serve
 
-from users.views import LoginView,  IndexView, OrdersView, DetailView, TaskView, StoreView
+from users.views import LoginView,  IndexView, OrdersView, DetailView, TaskView, StoreView, AGVView
 from epsManage.settings import MEDIA_ROOT
 
 urlpatterns = [
@@ -32,6 +32,7 @@ urlpatterns = [
     url(r'^orders/$', OrdersView.as_view(), name='orders'),
     url(r'^task/$', TaskView.as_view(), name='task'),
     url(r'^store/$', StoreView.as_view(), name='store'),
+    url(r'^agv/$', AGVView.as_view(), name='agv'),
     # upload image handle def
     url(r'^media/(?P<path>.*)$', serve, {'document_root': MEDIA_ROOT})
 ]

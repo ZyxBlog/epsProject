@@ -4,7 +4,7 @@ __author__ = 'zyx'
 
 import xadmin
 from xadmin import views
-from .models import FactoryInformation, OrdersDetail, ProduceTask, StoreHouse
+from .models import FactoryInformation, OrdersDetail, ProduceTask, StoreHouse, AGV
 
 
 class BaseSetting(object):
@@ -41,9 +41,16 @@ class StoreHouseAdmin(object):
     list_filter = ['weight', 'version',  'time', 'model', 'ratio', 'batch', 'contact', 'color']
 
 
+class AGVAdmin(object):
+    list_display = ['name', 'ip', 'contact', 'route', 'model', 'load', 'task', 'stage', 'error', 'power', 'time']
+    search_fields = ['name', 'ip', 'contact', 'route', 'model', 'load', 'task', 'stage', 'error', 'power']
+    list_filter = ['name', 'ip', 'contact', 'route', 'model', 'load', 'task', 'stage', 'error', 'power', 'time']
+
+
 xadmin.site.register(FactoryInformation, FactoryInformationAdmin)
 xadmin.site.register(OrdersDetail, OrdersDetailAdmin)
 xadmin.site.register(views.BaseAdminView, BaseSetting)
 xadmin.site.register(ProduceTask, ProduceTaskAdmin)
 xadmin.site.register(StoreHouse, StoreHouseAdmin)
+xadmin.site.register(AGV, AGVAdmin)
 xadmin.site.register(views.CommAdminView, GlobalSettings)

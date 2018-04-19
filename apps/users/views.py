@@ -5,7 +5,7 @@ from django.contrib.auth.backends import ModelBackend
 from django.db.models import Q
 from django.views.generic.base import View
 
-from .models import UserProfile, FactoryInformation, OrdersDetail, ProduceTask, StoreHouse
+from .models import UserProfile, FactoryInformation, OrdersDetail, ProduceTask, StoreHouse, AGV
 from .forms import LoginForm
 
 # Create your views here.
@@ -85,3 +85,9 @@ class StoreView(View):
     def get(self, request):
         store = StoreHouse.objects.all()
         return render(request, 'store.html', {'store': store})
+
+
+class AGVView(View):
+    def get(self, request):
+        agv = AGV.objects.all()
+        return render(request, 'agv.html', {'agv': agv})
