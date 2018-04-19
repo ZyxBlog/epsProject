@@ -42,6 +42,7 @@
 
     .whole-wrap {
         height: 140px;
+        width: 920px;
         border: 1px solid rgb(184, 192, 194);
         margin: 0 20px 20px 20px;
     }
