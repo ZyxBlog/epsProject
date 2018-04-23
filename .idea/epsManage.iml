@@ -17,6 +17,7 @@
       <sourceFolder url="file://$MODULE_DIR$/apps" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/extra_apps" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/info" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/socket" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
