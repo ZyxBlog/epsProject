@@ -1,9 +1,4 @@
 $(function() {
-    // for(let i = 0; i < $('.total').length; i++) {
-    //     const t = $('.total').eq(i).prev().prev().html() * $('.total').eq(i).prev().html();
-    //     $(".total").eq(i).html(t)
-    // }
-
     const a = $("tbody").children();
 
 
@@ -25,5 +20,6 @@ $(function() {
         $("#nolist").show();
         $("table").eq(0).hide();
     }
+
 
 })
